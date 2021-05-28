@@ -22,7 +22,7 @@
  Adapted for the ESP32/ESP8266 by G6EJD  
 */
 #include "SH1106.h"     // https://github.com/squix78/esp8266-oled-ssd1306
-SH1106 display(0x3c, 17,16); // 1.3" OLED display object definition (address, SDA, SCL) Connect OLED SDA , SCL pins to ESP SDA, SCL pins
+SH1106 display(0x3c, SDA, SCL); // 1.3" OLED display object definition (address, SDA, SCL) Connect OLED SDA , SCL pins to ESP SDA, SCL pins
 
 float magnitude           = 0;;
 int   magnitudelimit      = 100;
@@ -256,4 +256,3 @@ void AddCharacter(char newchar){
   for (int i = 0; i < num_chars; i++) DisplayLine[i] = DisplayLine[i+1];
   DisplayLine[num_chars] = newchar;
 }
-
